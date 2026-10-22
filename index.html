@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Garima · AI Builds</title>
+<meta name="description" content="Six AI-built products by Garima: data pipelines, LLM apps, decision tools and GTM strategy, each designed, built and shipped independently." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%231f3b5c'/><text x='16' y='22.5' font-family='Georgia,serif' font-size='18' font-weight='700' fill='white' text-anchor='middle'>G</text></svg>" />
+<style>
+  :root {
+    --bg: #f6f5f1; --surface: #ffffff; --ink: #18202a; --ink-2: #4a5360; --ink-3: #737b86;
+    --line: #e2dfd7; --navy: #1f3b5c; --accent: #1a4f8b; --chip: #eef2f7; --chip-ink: #1f3b5c;
+    --ai: #f3ecdf; --ai-ink: #7a4b12; --shadow: 0 1px 2px rgba(20,30,40,.05), 0 8px 24px rgba(20,30,40,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12161c; --surface: #1a2029; --ink: #e9edf2; --ink-2: #b4bcc7; --ink-3: #8a94a1;
+      --line: #2a323e; --navy: #9cc0ea; --accent: #8fb8ea; --chip: #22303f; --chip-ink: #c5d9f0;
+      --ai: #2d2618; --ai-ink: #e2bf86; --shadow: none;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.55 Inter, system-ui, sans-serif; }
+  a { color: var(--accent); }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+  header.hero { padding: 56px 0 28px; border-bottom: 1px solid var(--line); }
+  .eyebrow { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin: 0 0 10px; font-weight: 600; }
+  h1 { overflow-wrap: anywhere; font-family: "Source Serif 4", Georgia, serif; font-size: clamp(32px, 5vw, 46px); line-height: 1.1; margin: 0; color: var(--navy); letter-spacing: -.01em; }
+  .lede { font-size: 17px; color: var(--ink-2); max-width: 760px; margin: 14px 0 18px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; }
+  .links a { text-decoration: none; font-weight: 500; }
+  .links a:hover { text-decoration: underline; }
+
+  .how { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin: 28px 0 8px; }
+  .how div { background: var(--surface); padding: 14px 16px; }
+  .how b { display: block; font-family: "Source Serif 4", Georgia, serif; font-size: 22px; color: var(--navy); }
+  .how span { font-size: 13px; color: var(--ink-2); }
+
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; padding: 28px 0 40px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+  .shot { display: block; aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid var(--line); background: #0f1218; }
+  .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; transition: transform .3s ease; }
+  .shot:hover img { transform: scale(1.02); }
+  .body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-size: 11.5px; font-weight: 600; padding: 3px 9px; border-radius: 999px; background: var(--chip); color: var(--chip-ink); }
+  h2 { font-family: "Source Serif 4", Georgia, serif; font-size: 22px; margin: 0; color: var(--ink); }
+  .what { margin: 0; color: var(--ink-2); }
+  ul { margin: 0; padding-left: 18px; color: var(--ink); font-size: 14px; }
+  li { margin-bottom: 4px; }
+  li b { font-weight: 600; }
+  .ai { background: var(--ai); color: var(--ai-ink); border-radius: 8px; padding: 9px 12px; font-size: 13.5px; margin: 0; }
+  .ai strong { font-weight: 600; }
+  .foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: auto; padding-top: 6px; }
+  .stack { font-size: 12.5px; color: var(--ink-3); }
+  .cta { display: flex; gap: 14px; font-size: 14px; font-weight: 600; white-space: nowrap; }
+  .cta a { text-decoration: none; }
+  .cta a:hover { text-decoration: underline; }
+
+  footer { border-top: 1px solid var(--line); padding: 22px 0 40px; color: var(--ink-3); font-size: 13px; }
+
+  @media (max-width: 820px) {
+    .grid { grid-template-columns: minmax(0, 1fr); }
+    .how { grid-template-columns: repeat(2, 1fr); }
+    header.hero { padding-top: 36px; }
+  }
+  @media (max-width: 420px) { .wrap { padding: 0 16px; } .how { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Portfolio · AI-native builder</p>
+    <h1>Garima: six things I designed, built and shipped with AI</h1>
+    <p class="lede">
+      I turn a business problem into a working AI product, often within a day. Each project below started from a real market
+      question, runs on public data I sourced and checked, and was built end to end with Claude and Claude Code. All of them are
+      live, free to use and open source.
+    </p>
+    <nav class="links" aria-label="Contact">
+      <a href="https://linkedin.com/in/garima-1676141b4" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/garima0901-source" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:garima0901@gmail.com">garima0901@gmail.com</a>
+    </nav>
+    <div class="how">
+      <div><b>6</b><span>live products, each built solo from a blank page</span></div>
+      <div><b>5.7M</b><span>official register records processed in one pipeline</span></div>
+      <div><b>0</b><span>invented numbers: every fact is sourced, every assumption labelled</span></div>
+      <div><b>Claude</b><span>API in the products, Claude Code to build them</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap grid">
+
+  <article class="card">
+    <a class="shot" href="https://signal-desk-uk.vercel.app" target="_blank" rel="noopener"><img src="img/signal-desk.png" alt="Signal Desk: monthly UK private-markets signal feed" loading="lazy" /></a>
+    <div class="body">
+      <div class="tags"><span class="tag">Data pipeline</span><span class="tag">Automation</span><span class="tag">GTM playbook</span></div>
+      <h2>Signal Desk</h2>
+      <p class="what">A monthly feed of who is launching funds and setting up deals in the UK, pulled straight from the Companies House register.</p>
+      <ul>
+        <li>Scans <b>5.7M register entries</b> and finds <b>3,498</b> fund partnerships, carry vehicles and BidCo/TopCo deal stacks in 12 months</li>
+        <li>Groups them into <b>585 sponsor clusters</b>, with an interactive monthly chart and a filterable feed</li>
+        <li>Refreshes itself every month through a scheduled <b>GitHub Action</b>; ships with a full outbound playbook</li>
+      </ul>
+      <p class="ai"><strong>AI in the build:</strong> designed the classification rules with Claude, then used Claude Code to write and test the data pipeline and site.</p>
+      <div class="foot">
+        <span class="stack">Node.js · GitHub Actions · open data · Vercel</span>
+        <span class="cta"><a href="https://signal-desk-uk.vercel.app" target="_blank" rel="noopener">Live ↗</a><a href="https://github.com/garima0901-source/signal-desk" target="_blank" rel="noopener">Code ↗</a></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <a class="shot" href="https://pipeline-truth.vercel.app/?demo" target="_blank" rel="noopener"><img src="img/pipeline-truth.png" alt="Pipeline Truth: forecast health check for Salesforce exports" loading="lazy" /></a>
+    <div class="body">
+      <div class="tags"><span class="tag">LLM product</span><span class="tag">Privacy by design</span><span class="tag">PRD</span></div>
+      <h2>Pipeline Truth</h2>
+      <p class="what">A free health check for sales forecasts: drop in a Salesforce export and see how much pipeline rests on stale data.</p>
+      <ul>
+        <li><b>5 rule-based checks</b> and a value-weighted score, with stage, owner and forecast views plus a fix-list export</li>
+        <li>An optional <b>Claude-written brief</b> that only ever sees aggregates, with rep names replaced by labels</li>
+        <li>Ships with the full <b>PRD</b>: user stories, acceptance criteria, metrics and an <b>AI decision log</b></li>
+      </ul>
+      <p class="ai"><strong>AI in the product:</strong> Claude API behind a serverless function, with data minimised before it leaves the browser.</p>
+      <div class="foot">
+        <span class="stack">JavaScript · Anthropic SDK · Vercel functions</span>
+        <span class="cta"><a href="https://pipeline-truth.vercel.app/?demo" target="_blank" rel="noopener">Live demo ↗</a><a href="https://github.com/garima0901-source/pipeline-truth" target="_blank" rel="noopener">Code ↗</a></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <a class="shot" href="https://robot-ready.vercel.app" target="_blank" rel="noopener"><img src="img/robot-ready.png" alt="Robot-Ready: go-live readiness kit for AI picking robots" loading="lazy" /></a>
+    <div class="body">
+      <div class="tags"><span class="tag">Multi-tool app</span><span class="tag">LLM memo</span><span class="tag">Regulation</span></div>
+      <h2>Robot-Ready</h2>
+      <p class="what">A go-live readiness kit for European warehouses deploying AI picking robots.</p>
+      <ul>
+        <li>A <b>20-question readiness assessment</b> and a <b>90-day go-live plan</b></li>
+        <li>A <b>payback calculator</b> built on Eurostat labour-cost data, plus a pilot KPI tracker</li>
+        <li>A plain-English guide to the <b>EU Machinery Regulation</b> that applies from January 2027</li>
+      </ul>
+      <p class="ai"><strong>AI in the product:</strong> a Claude-written readiness memo that turns the user's own answers into a briefing for leadership.</p>
+      <div class="foot">
+        <span class="stack">React · Vite · Claude API · Vercel</span>
+        <span class="cta"><a href="https://robot-ready.vercel.app" target="_blank" rel="noopener">Live ↗</a><a href="https://github.com/garima0901-source/robot-ready" target="_blank" rel="noopener">Code ↗</a></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <a class="shot" href="https://pipeline-from-scratch.vercel.app" target="_blank" rel="noopener"><img src="img/pipeline-from-scratch.png" alt="Pipeline from Scratch: outbound playbook for an AI-native CRM" loading="lazy" /></a>
+    <div class="body">
+      <div class="tags"><span class="tag">GTM strategy</span><span class="tag">Scoring model</span><span class="tag">Calculator</span></div>
+      <h2>Pipeline from Scratch</h2>
+      <p class="what">The first outbound playbook for a seed-stage AI-native CRM, written before day one.</p>
+      <ul>
+        <li><b>53 real target accounts</b> from 2026 funding data, each scored and given a sourced "why now"</li>
+        <li><b>4 message angles</b> with 10 written messages, a 5-touch sequence and a channel mix</li>
+        <li>A working <b>stack-cost calculator</b> as a lead magnet, plus a market-pulse read for product</li>
+      </ul>
+      <p class="ai"><strong>AI in the build:</strong> Claude for sourcing funding rounds and pricing pages, drafting the scoring model and copy; Claude Code for the site.</p>
+      <div class="foot">
+        <span class="stack">JavaScript · public funding data · Vercel</span>
+        <span class="cta"><a href="https://pipeline-from-scratch.vercel.app" target="_blank" rel="noopener">Live ↗</a><a href="https://github.com/garima0901-source/pipeline-from-scratch" target="_blank" rel="noopener">Code ↗</a></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <a class="shot" href="https://btl-returns-lab.vercel.app" target="_blank" rel="noopener"><img src="img/returns-lab.png" alt="UK Buy-to-Let Returns Lab" loading="lazy" /></a>
+    <div class="body">
+      <div class="tags"><span class="tag">Financial model</span><span class="tag">Official data</span><span class="tag">Web + Excel</span></div>
+      <h2>UK Buy-to-Let Returns Lab</h2>
+      <p class="what">Personal name or limited company? A 10-year returns model for UK rental property.</p>
+      <ul>
+        <li>Built on <b>HM Land Registry</b> prices, <b>ONS</b> rents and current <b>HMRC</b> tax rates</li>
+        <li><b>IRR in 13 currencies</b> for overseas investors, plus a regional ranking</li>
+        <li>A matching <b>Excel model</b>, checked line by line against the web version</li>
+      </ul>
+      <p class="ai"><strong>AI in the build:</strong> Claude Code to build and cross-check both models; every tax rule traced to GOV.UK.</p>
+      <div class="foot">
+        <span class="stack">JavaScript · Excel · open government data · Vercel</span>
+        <span class="cta"><a href="https://btl-returns-lab.vercel.app" target="_blank" rel="noopener">Live ↗</a><a href="https://github.com/garima0901-source/btl-returns-lab" target="_blank" rel="noopener">Code ↗</a></span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <a class="shot" href="https://bid-multipliers-se.vercel.app" target="_blank" rel="noopener"><img src="img/bid-multipliers.png" alt="Bid Multipliers: partner ecosystem for AI tender analysis in Sweden" loading="lazy" /></a>
+    <div class="body">
+      <div class="tags"><span class="tag">Ecosystem strategy</span><span class="tag">Research</span><span class="tag">Reach model</span></div>
+      <h2>Bid Multipliers</h2>
+      <p class="what">Who could bring an AI tender-analysis platform its next Swedish contractors, and why they'd say yes.</p>
+      <ul>
+        <li><b>14 partners in 5 groups</b>, from tender-data platforms to trade associations covering <b>~12,600 firms</b></li>
+        <li><b>3 integration pitches</b> showing how data flows between a partner's tool and AI review</li>
+        <li>An interactive <b>reach model</b> and a 90-day partner pipeline, built on <b>23 public sources</b></li>
+      </ul>
+      <p class="ai"><strong>AI in the build:</strong> Claude for multilingual (Swedish) research and source checking; Claude Code for the page.</p>
+      <div class="foot">
+        <span class="stack">HTML · CSS · JavaScript · Vercel</span>
+        <span class="cta"><a href="https://bid-multipliers-se.vercel.app" target="_blank" rel="noopener">Live ↗</a><a href="https://github.com/garima0901-source/bid-multipliers" target="_blank" rel="noopener">Code ↗</a></span>
+      </div>
+    </div>
+  </article>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    Every project is independent work built from public sources. None is affiliated with or made on behalf of any company it discusses.
+  </div>
+</footer>
+</body>
+</html>
